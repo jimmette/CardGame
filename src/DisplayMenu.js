@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { SpinnerContainer } from "./AppStyle";
 
+let spinner = require("./assets/gif/spinner.gif");
 class DisplayMenu extends Component {
   constructor(props) {
     super(props);
@@ -63,6 +65,15 @@ class DisplayMenu extends Component {
       btn.disabled = false;
     }
   };
+  displaySpinner = () => {
+    if (this.props.displaySpinner === true) {
+      return (
+        <SpinnerContainer>
+          <img src={spinner} alt="spinner" />
+        </SpinnerContainer>
+      );
+    }
+  };
   render() {
     console.log("in DisplayDealtCard render");
     return (
@@ -94,6 +105,7 @@ class DisplayMenu extends Component {
           />
           {this.isResetDisabled()}
         </div>
+        {this.displaySpinner()}
       </div>
     );
   }

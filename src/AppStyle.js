@@ -5,24 +5,22 @@ const MainContainer = styled.div`
   height: 100%;
   margin-top: 100px;
   display: flex;
+  flex-flow: row nowrap;
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  z-index: 0;
 `;
 
 const DeckContainer = styled.div`
   width: 140px;
   height: 190px;
   margin-right: 20px;
-  z-index: 0;
 `;
 
 const DealtDeckContainer = styled.div`
   width: 140px;
   height: 190px;
   margin-right: 20px;
-  z-index: 0;
 `;
 
 const SpinnerContainer = styled.div`
@@ -30,7 +28,7 @@ const SpinnerContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  z-index: 50;
+  margin-top: 10px;
 `;
 
 export { MainContainer, DeckContainer, DealtDeckContainer, SpinnerContainer };
