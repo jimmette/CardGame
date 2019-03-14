@@ -9,9 +9,13 @@ import DECK from "./Deck";
 let reducer = function(state, action) {
   switch (action.type) {
     case "SET_DECK":
+      console.log("in SET_DECK");
       return { ...state, deck: action.deck };
     case "DEAL_CARD":
-      return { ...state };
+      console.log("in DEAL_CARD");
+      let newDeck = state.dealtDeck;
+      newDeck.push(action.card);
+      return { ...state, dealtDeck: newDeck };
     default:
       return state;
   }
