@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import DECK from "./Deck";
 
+const INIT_STATE = { deck: DECK, dealtDeck: [], displaySpinner: false };
+
 let reducer = function(state, action) {
   switch (action.type) {
     case "SET_DECK":
@@ -13,9 +15,13 @@ let reducer = function(state, action) {
       return { ...state, deck: action.deck };
     case "DEAL_CARD":
       console.log("in DEAL_CARD");
-      let newDeck = state.dealtDeck;
+      let newDeck = state.dealtDeck.concat();
       newDeck.push(action.card);
       return { ...state, dealtDeck: newDeck };
+    case "SET_DISPLAY_SPINNER":
+      return { ...state, displaySpinner: action.value };
+    case "RESET":
+      return INIT_STATE;
     default:
       return state;
   }
@@ -23,7 +29,7 @@ let reducer = function(state, action) {
 
 const myStore = createStore(
   reducer,
-  { deck: DECK, dealtDeck: [] },
+  INIT_STATE,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

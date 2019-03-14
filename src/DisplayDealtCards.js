@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { DealtDeckContainer } from "./AppStyle";
-
-let emptyDeck = require("./assets/images/emptyDeck.png");
+import { EMPTYDECKIMG } from "./Constants";
 
 class DisplayDealtCards extends Component {
   constructor(props) {
@@ -12,13 +11,12 @@ class DisplayDealtCards extends Component {
 
   render() {
     console.log("in DisplayDealtCard render");
-    console.log(this.props.dealtDeck.length);
     return (
       <DealtDeckContainer>
         <img
           src={
             this.props.dealtDeck.length === 0
-              ? emptyDeck
+              ? EMPTYDECKIMG
               : this.props.dealtDeck[this.props.dealtDeck.length - 1].img
           }
           alt="card"
@@ -29,7 +27,9 @@ class DisplayDealtCards extends Component {
 }
 
 let mapStateToProps = function(state) {
-  return { deck: state.deck, dealtDeck: state.dealtDeck };
+  return {
+    dealtDeck: state.dealtDeck
+  };
 };
 
 export default connect(mapStateToProps)(DisplayDealtCards);
