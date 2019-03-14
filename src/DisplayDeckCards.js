@@ -11,20 +11,20 @@ class DisplayDeckCards extends Component {
     this.state = {};
   }
   displaySpinner = () => {
-    if (this.props.displaySpinner === true) {
-      return (
-        <SpinnerContainer>
-          <img src={spinner} alt="spinner" />
-        </SpinnerContainer>
-      );
-    }
+    // if (this.props.displaySpinner === true) {
+    //   return (
+    //     <SpinnerContainer>
+    //       <img src={spinner} alt="spinner" />
+    //     </SpinnerContainer>
+    //   );
+    // }
   };
 
   render() {
     console.log("in DisplayDeckCard render");
     return (
       <DeckContainer id="deckContainer">
-        {this.displaySpinner()}
+        {/* {this.displaySpinner()} */}
         <img
           src={this.props.deck.length === 0 ? EMPTYDECKIMG : CARDBACKIMG}
           alt="card"

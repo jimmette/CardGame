@@ -19,8 +19,10 @@ let reducer = function(state, action) {
       newDeck.push(action.card);
       return { ...state, dealtDeck: newDeck };
     case "SET_DISPLAY_SPINNER":
+      console.log("in SET_DISPLAY_SPINNER");
       return { ...state, displaySpinner: action.value };
     case "RESET":
+      console.log("in RESET", INIT_STATE);
       return INIT_STATE;
     default:
       return state;

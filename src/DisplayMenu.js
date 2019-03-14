@@ -13,15 +13,15 @@ class DisplayMenu extends Component {
     }
   }
   onClickShuffle = () => {
-    let deck = this.props.deck;
+    let deck = [...this.props.deck];
     let shuffledDeck = [];
     let dice = 0;
 
-    this.props.dispatch({ type: "SET_DISPLAY_SPINNER", value: true });
-    this.timeout = setTimeout(() => {
-      console.log("in Timeout");
-      this.props.dispatch({ type: "SET_DISPLAY_SPINNER", value: false });
-    }, 2000);
+    // this.props.dispatch({ type: "SET_DISPLAY_SPINNER", value: true });
+    // this.timeout = setTimeout(() => {
+    //   console.log("in Timeout");
+    //   this.props.dispatch({ type: "SET_DISPLAY_SPINNER", value: false });
+    // }, 2000);
 
     while (deck.length > 0) {
       dice = Math.floor(Math.random() * deck.length);
@@ -35,7 +35,6 @@ class DisplayMenu extends Component {
     let card = deck.pop();
     this.props.dispatch({ type: "DEAL_CARD", card: card });
     this.props.dispatch({ type: "SET_DECK", deck: deck });
-    console.log("end of dealOneCard");
   };
   onClickReset = () => {
     this.props.dispatch({ type: "RESET" });
