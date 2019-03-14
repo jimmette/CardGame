@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { MainContainer } from "./AppStyle";
+import {
+  MainContainer,
+  GameContainer,
+  Title,
+  MiddleContainer
+} from "./AppStyle";
 import DisplayDealtCards from "./DisplayDealtCards";
 import DisplayDeckCards from "./DisplayDeckCards";
 import DisplayMenu from "./DisplayMenu";
+import "./style.css";
 
 class App extends Component {
   constructor(props) {
@@ -14,9 +20,14 @@ class App extends Component {
     console.log("in App render");
     return (
       <MainContainer>
-        <DisplayDealtCards />
-        <DisplayDeckCards />
-        <DisplayMenu />
+        <MiddleContainer>
+          <Title>Card Game!</Title>
+          <GameContainer>
+            <DisplayDealtCards />
+            <DisplayDeckCards />
+            <DisplayMenu />
+          </GameContainer>
+        </MiddleContainer>
       </MainContainer>
     );
   }

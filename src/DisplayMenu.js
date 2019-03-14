@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { SpinnerContainer } from "./AppStyle";
+import { SpinnerContainer, MenuContainer } from "./AppStyle";
 
 let spinner = require("./assets/gif/spinner.gif");
 class DisplayMenu extends Component {
@@ -77,36 +77,32 @@ class DisplayMenu extends Component {
   render() {
     console.log("in DisplayDealtCard render");
     return (
-      <div>
-        <div>
-          <input
-            type="button"
-            id="btn_shuffle"
-            onClick={this.onClickShuffle}
-            value="Shuffle"
-          />
-          {this.isShuffleDisabled()}
-        </div>
-        <div>
-          <input
-            type="button"
-            id="btn_deal"
-            onClick={this.onClickDealOneCard}
-            value="Deal one card"
-          />
-          {this.isDealDisabled()}
-        </div>
-        <div>
-          <input
-            type="button"
-            id="btn_reset"
-            onClick={this.onClickReset}
-            value="Reset"
-          />
-          {this.isResetDisabled()}
-        </div>
+      <MenuContainer>
+        <input
+          type="button"
+          id="btn_shuffle"
+          onClick={this.onClickShuffle}
+          value="Shuffle"
+        />
+        {this.isShuffleDisabled()}
+
+        <input
+          type="button"
+          id="btn_deal"
+          onClick={this.onClickDealOneCard}
+          value="Deal one card"
+        />
+        {this.isDealDisabled()}
+
+        <input
+          type="button"
+          id="btn_reset"
+          onClick={this.onClickReset}
+          value="Reset"
+        />
+        {this.isResetDisabled()}
         {this.displaySpinner()}
-      </div>
+      </MenuContainer>
     );
   }
 }
