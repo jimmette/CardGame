@@ -7,7 +7,7 @@ let reducer = function(state, action) {
       return { ...state, deck: action.deck };
     case "DEAL_CARD":
       console.log("in DEAL_CARD");
-      let newDeck = state.dealtDeck.concat();
+      let newDeck = [...state.dealtDeck];
       newDeck.push(action.card);
       return { ...state, dealtDeck: newDeck };
     case "SET_DISPLAY_SPINNER":
